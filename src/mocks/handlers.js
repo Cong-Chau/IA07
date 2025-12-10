@@ -1,7 +1,7 @@
 import { http, HttpResponse } from "msw";
 
 export const handlers = [
-  http.post("http://localhost:5173/api/auth/login", async ({ request }) => {
+  http.post("/api/auth/login", async ({ request }) => {
     const body = await request.json();
     console.log("LOGIN MOCK BODY:", body); // debug
 
@@ -26,7 +26,7 @@ export const handlers = [
     );
   }),
 
-  http.post("http://localhost:5173/api/auth/refresh", async () => {
+  http.post("/api/auth/refresh", async () => {
     return HttpResponse.json(
       { accessToken: "mock-access-updated" },
       { status: 200 }
