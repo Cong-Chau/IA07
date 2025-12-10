@@ -1,5 +1,6 @@
 import { useAuth } from "../auth/authProvider";
 import { useQuery } from "@tanstack/react-query";
+import { fetchMe } from "../api/authApi";
 
 export default function Dashboard() {
   const { logout } = useAuth();
