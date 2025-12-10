@@ -32,4 +32,15 @@ export const handlers = [
       { status: 200 }
     );
   }),
+
+  http.get("/api/protected/user", () => {
+    return HttpResponse.json(
+      {
+        id: 1,
+        email: "admin@gmail.com",
+        name: "123456",
+      },
+      { status: 200 }
+    );
+  }),
 ];
