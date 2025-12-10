@@ -1,3 +1,5 @@
+import { useAuth } from "../auth/authProvider";
+
 export default function Dashboard() {
   const { logout } = useAuth();
 
