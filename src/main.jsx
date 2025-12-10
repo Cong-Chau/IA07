@@ -7,7 +7,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 const queryClient = new QueryClient();
 
 async function enableMocking() {
-  if (import.meta.env.DEV) {
+  // LUÔN bật Mock nếu biến env này = true
+  if (import.meta.env.VITE_USE_MOCK === "true") {
     const { worker } = await import("./mocks/browser");
     await worker.start({
       onUnhandledRequest: "bypass",
@@ -15,7 +16,7 @@ async function enableMocking() {
   }
 }
 
-await enableMocking(); // ⬅ quan trọng
+await enableMocking();
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
